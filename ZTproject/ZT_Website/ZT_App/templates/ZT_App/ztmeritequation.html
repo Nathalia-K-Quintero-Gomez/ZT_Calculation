@@ -1,0 +1,387 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+   <head>
+      <meta charset="utf-8">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+      <meta name="keywords" content="ZT figure of merit Calculator, Online Calculator, Calculate ZT of a thermoelectric pipe, ZT nano-fluids calculator" />
+      <meta name="description" content="Calculate the ZT figure of merit number of a thermoelectric pipe using mono-nanofluids as its working fluid" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+      <title>ZT Figure of Merit</title>
+      {% load static %}
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="{%static 'mycss/mycss.css' %}">
+      <link href="{%static 'mycss/mycss.css' %}">
+   </head>
+   <body>
+      <title>
+         <h1 >ZT FIGURE OF MERIT EQUATION</h1>
+      </title>
+      <!-- <img id="image1" src="{% static '\images\ntou.png' %}" alt="ntoulogo"/> -->
+      <br>
+      <br>
+      <h1 id="title1" >ZT FIGURE OF MERIT EQUATION</h1>
+      <hr>
+      <div class="sections">
+         <div class="column">
+            <div class="contents">
+               <img id="image1" src="{% static '\images\NTOUcirclelogo.svg' %}" alt="ntoulogo"/>
+               <p id="logo_text1" >National Taiwan Ocean University</p>
+               <p id="logo_text2" > A master's thesis project under the Department of Marine Engineering</p>
+               <p id="logo_text3"  ><span style="font-size: 1.10em; color:#ffcc00">Advisor:</span><a href="http://scholars.ntou.edu.tw/cris/rp/rp00294">榮昌 王 (J.-C. Wang)</a>
+                  <br> <span style="font-size: 1.10em; color:#ffcc00">Student:</span><a href="https://tw.linkedin.com/in/nathalia-k-quintero-gomez-%E7%A7%8B%E5%A8%9C%E8%8E%89-">秋娜莉 Nathalia. K Quintero Gomez </a>
+               </p>
+            </div>
+         </div>
+         <div class="column">
+            <div class="contents">
+               <h2 id="sub-title">ZT Merit Equation for Thermoelectric Pipe using Nanofluid</h2>
+               <p class="equation" id="main_display_eq"><a href="#logo_text1">\[ZT= \frac{\left(-V_{\text{th}}/\Delta T\right)^2 \sigma}{K_{\text{tp}}} T\]</a></p>
+            </div>
+         </div>
+         <div class="column">
+            <div class="info-box">
+               <h2>About this work</h2>
+               <p id="info-text">The presented website aims to provide
+                  a new approach in the calculation of
+                  ZT figure merit number of thermoelectric
+                  pipes by using nanofluid. More information
+                  about this new empirical equation can be
+                  found in the following journal: <a  id="link3" href="https://www.mdpi.com/2073-4360/13/11/1812">
+                  Estimations on Properties of Redox Reactions to Electrical Energy and Storage Device...</a>
+               </p>
+            </div>
+         </div>
+      </div>
+      <hr>
+      <!-- ZT CALCULATION PART (RETRIEVING DATA INTO ZT EQUATION -->
+      <div id="retrieve">
+         <p id="ZT_Calculation"><a id="link5" href="#Thermal_Conductivity">ZT FIGURE MERIT NUMBER CALCULATION</a></p>
+         <p id="Th_selection">Select the calculated Thermal Conductivity</p>
+         <select id="k-value">
+            <option value="">Select Chosen Thermal Conductivity</option>
+            <option value="k1">K1 (Predetermined Lambda value)</option>
+            <option value="k2">K2 (Different Lambda value)</option>
+            <option value="k3">K3 (no Pressure/Lambda value)</option>
+         </select>
+         <br>
+         <button id="calculate">Calculate ZT Figure of Merit</button>
+         <p id="result"></p>
+         <hr>
+      </div>
+      <h2 id="Temm"> Temperature </h2>
+      <br>
+      <br>
+      <label id="temps"  for="id_temp">Mean Temperature</label>
+      <input id="id_temp" type="text" name="tempe">
+      <span id="temp_span">K</span>
+      <div class="sections">
+         <div class="column">
+            <div class="contents">
+               <h2 id="Seebeck_Effect"><a class="components" href="#title1">Seebeck Effect</a></h2>
+               <div class="equation" id="equation2">
+                  {% verbatim %} \[ \left(-\frac{{V_{th}}}{{\Delta T}}\right)^2 \] {% endverbatim %}
+               </div>
+               <form id="formSbk">
+                  <label for="id_V">Vth:</label>
+                  <input id="id_V" type="text" name="Vth">
+                  <span>V</span>
+                  <br>
+                  <br>
+                  <label for="id_T">&Delta;T:</label>
+                  <input id="id_T" type="text" name="&Delta;T">
+                  <span>K</span>
+                  <br>
+                  <br>
+                  <button type="submit" id="cte-sbk">Calculate Seebeck Effect</button>
+               </form>
+               <p id="resultSbk"></p>
+            </div>
+            <div class="contents">
+               <br>
+               <br>
+               <h2>Thermovoltage (Vth)</h2>
+               <div class="equation" id="equation3">
+                  {% verbatim %} \[ V_{\text{th}} = \left[\left(\frac{{\mu_W}}{{m^2}}\right) \div \left(\frac{{\mu_A}}{{m^2}}\right)\right] \] {% endverbatim %}
+               </div>
+               <br>
+               <form id="formVt">
+                  <label for="id_Pd">Power density(Pd):</label>
+                  <input id="id_Pd" type="text" name="Pd">
+                  <span>µW/m²</span>
+                  <br>
+                  <br>
+                  <label for="id_Cd">Current density(Cd):</label>
+                  <input id="id_Cd" type="text" name="Cd">
+                  <span>µA/m²</span>
+                  <button type="submit" id="cte-thm">Calculate Thermovoltage</button>
+               </form>
+               <p id="resultVth"></p>
+               <button id="transferVth">Transfer Vth to Seebeck </button>
+               <br>
+               <br>
+               <button id="scroll1" onclick="location.href='#logo_text1'"  >scroll to ZT Merit Eq</button>
+            </div>
+         </div>
+         <div class="column">
+            <div id="rollsection"  class="contents">
+               <h2 id="Thermal_Conductivity"><a class="components" href="#title1">Thermal Conductivity</a></h2>
+               <h6 id="tcd1"> 1) Thermal conductivity with factor Vacuum Pressure</h6>
+               <div class="equation" id="equation4">
+                  {% verbatim %} \[ K_{\text{tp}} = (1.204 \times T_{\text{tp}})^{0.866} \times (13.17\times P_\text{tp})^{\lambda} \] {% endverbatim %}
+               </div>
+               <br>
+               <form id="formTh">
+                  <label for="id_f">Ttp:</label>
+                  <input id="id_f" type="text" name="f">
+                  <span>K</span>
+                  <br>
+                  <br>
+                  <label for="id_j">Ptp:</label>
+                  <input id="id_j" type="text" name="g">
+                  <span>Pa</span>
+                  <br>
+                  <br>
+                  <div class="equation"id="equation5">
+                     {% verbatim %} \[ \begin{align} \lambda &= -5.10769 \times 10^{-10} (P_{tp})^3 + 9.69923 \times 10^{-7} (P_{tp})^2 \\ &\quad - 6.1349 \times 10^{-4} (P_{tp}) + 0.122 \end{align} \] {% endverbatim %}
+                  </div>
+                  <label for="id_g">&lambda;:</label>
+                  <select id="id_g" name="g">
+                     <option value="">Select a predetermined lambda value</option>
+                     <option value="-5.21*10**5">&lambda;1 = -5.21&times;10<sup>5</sup> at(101308Pa)</option>
+                     <option value="-2.55*10**5">&lambda;2 = -2.55&times;10<sup>5</sup> at(101308Pa)</option>
+                     <option value="-1.47*10**5">&lambda;3 = -1.47&times;10<sup>5</sup> at(101308Pa)</option>
+                     <option value="-7.47*10**4">&lambda;4 = -7.47&times;10<sup>5</sup> at(101308Pa)</option>
+                  </select>
+                  <button type="submit" id="cte-k">Calculate Ktp(predetermined &lambda; value) </button>
+               </form>
+               <p id="resultX"></p>
+            </div>
+            <div class="contents">
+               <form id="formTh2">
+                  <p>
+                     <label id="dlv" for="id_k">Different &lambda; value:</label>
+                     <input id="id_k" type="text" name="g">
+                  </p>
+                  <button type="submit" id="cte-k2">Calculate Ktp(Different &lambda; value) </button>
+               </form>
+               <p id="resultY"></p>
+            </div>
+            <div class="contents">
+               <br>
+               <h2>Calculation of a different Lambda Value</h2>
+               <div class="equation"id="equation6">
+                  {% verbatim %} \[ \begin{align} \lambda &= -5.10769 \times 10^{-10} (P_{tp})^3 + 9.69923 \times 10^{-7} (P_{tp})^2 \\ &\quad - 6.1349 \times 10^{-4} (P_{tp}) + 0.122 \end{align} \]
+                  {% endverbatim %}
+               </div>
+               <br>
+               <form id="formG_custom">
+                  <p>
+                     <label for="id_h">Ptp:</label>
+                     <input id="id_h" type="text" name="h">
+                     <span>Pa</span>
+                  </p>
+                  <button type="submit" id="cte-lb">Calculate &lambda;</button>
+               </form>
+               <p id="resultG"></p>
+               <button type="submit" id="cte-lb2" onclick="location.href='#dlv'">Transfer to (Different &lambda; value)</button>
+            </div>
+            <div class="contents">
+               <br>
+               <br>
+               <h2 id="tcd2">2) Thermal Conductivity </h2>
+               <h4 id="tcd_txt">Without factor of Vacuum Pressure</h4>
+               <div class="equation"id="equation8">
+                  {% verbatim %} \[ K_{\text{tp}} = (1.204 \times T_{\text{tp}})^{0.866} \] {% endverbatim %}
+               </div>
+               <form id="formnt">
+                  <p>
+                     <label for="id_nt">Ttp:</label>
+                     <input id="id_nt" type="text" name="nt">
+                     <span>K</span>
+                  </p>
+                  <button type="submit" id="cte-nt">Calculate K (No Pressure)</button>
+               </form>
+               <p id="resultnt"></p>
+               <button id="scroll2" onclick="location.href='#logo_text1'" >scroll to ZT Merit Eq</button>
+            </div>
+         </div>
+         <div class="column">
+            <div class="contents">
+               <h2 id="Electrical_Conductivity"><a class="components" href="#title1">Electrical Conductivity</a></h2>
+               <div class="equation" id="equation7">
+                  <br>
+                  {% verbatim %} \[ \sigma = (WT_{\text{bf}}\%) (\sigma_{\text{bf}}) + (WT_{\text{np}}\%)(\sigma_{\text{np}}) \] {% endverbatim %}
+               </div>
+               <br>
+               <label for="id_wtnp">
+                  <h2>Nanoparticle weight percentage:</h2>
+               </label>
+               <form id="formEle">
+                  <p>
+                     <input id="id_wtnp" type="text" name="wtnp">
+                  </p>
+                  <p>
+                     <label for="id_wtbf">
+                  <h2>Base fluid weight <br>percentage: </br></h2></label>
+                  <input id="id_wtbf" type="text" name="wtbf">
+                  </p>
+                  <p>
+                     <label for="id_elenp">
+                  <h2>Nanoparticle electrical conductivity:</h2></label>
+                  <input id="id_elenp" type="text" name="elenp">
+                  <span>σ</span>
+                  </p>
+                  <p>
+                     <label for="id_elebf">
+                  <h2>Base fluid electrical
+                  <br>conductivity:</br></h2></label>
+                  <input id="id_elebf" type="text" name="elebf">
+                  <span>σ</span>
+                  </p>
+                  <button type="submit"id="cte-ec">Calculate Electrical Conductivity</button>
+               </form>
+               <p id="resultelecd"></p>
+               <button id="scroll3" onclick="location.href='#logo_text1'">scroll to ZT Merit Eq</button>
+            </div>
+         </div>
+      </div>
+      </div>
+      <script>
+         window.onload = function() {
+                     <!-- Function to calculate Seebeck Effect -->
+                     document.getElementById('formSbk').addEventListener('submit', function(e) {
+                         e.preventDefault();
+                         var Vth = parseFloat(document.getElementById('id_V').value);
+                         var deltaT = parseFloat(document.getElementById('id_T').value);
+                         var Sbk =  -1 *(Vth/deltaT);
+                         document.getElementById('resultSbk').textContent = "Seebeck Effect (V/K)= " + Sbk;
+                     });
+
+                     <!-- Function to calculate Vth -->
+                     document.getElementById('formVt').addEventListener('submit', function(e) {
+                         e.preventDefault();
+                         var Pd = parseFloat(document.getElementById('id_Pd').value);
+                         var Cd = parseFloat(document.getElementById('id_Cd').value);
+                         var Vth =  Pd/Cd;
+                         document.getElementById('resultVth').textContent = "Thermovoltage (V) = " + Vth;
+                     });
+
+                     <!-- Function to transfer Vth to Seebek Effect -->
+                     document.getElementById('transferVth').addEventListener('click', function(e) {
+                          e.preventDefault();
+                         var Vth = document.getElementById('resultVth').textContent.split(" = ")[1];
+                         document.getElementById('id_V').value = Vth;
+                     });
+
+                     <!-- Thermal Conductivity Calculation -->
+                         <!-- Function to calculate Thermal Conductivity -->
+                     document.getElementById('formTh').addEventListener('submit', function(e) {
+                     e.preventDefault()
+                     var Ttp = parseFloat(document.getElementById('id_f').value);
+                     var Ptp = parseFloat(document.getElementById('id_j').value);
+                     var lamb = parseFloat(document.getElementById('id_g').value);
+
+                     if (!lamb) {
+                           lamb = parseFloat(document.getElementById('resultG').textContent.split(" = ")[1]);
+
+                 }
+                 var X = (1.204)*(Ttp)**0.866 *((13.17)*(Ptp)**lamb);
+                 document.getElementById('resultX').textContent = "Thermal Conductivity (k)= " + X;
+                     });
+
+                     <!-- Función para calcular Lambda G personalizado -->
+                     document.getElementById('formG_custom').addEventListener('submit', function(e) {
+                     e.preventDefault();
+                          var Ptpp = parseFloat(document.getElementById('id_h').value);
+                          var G_custom = (-5.10769*10**-10)*(Ptpp)**3+(6.69*10**-7)*(Ptpp)**2-(6.134*10**-4)*(Ptpp)+0.122;
+                          document.getElementById('resultG').textContent = "Lambda(λ); = " + G_custom;
+                     });
+
+                         <!-- Function to calculate Electrical Conductivity -->
+                     document.getElementById('formEle').addEventListener('submit', function(e) {
+                     e.preventDefault()
+                     var wtnp = parseFloat(document.getElementById('id_wtnp').value);
+                     var wtbf = parseFloat(document.getElementById('id_wtbf').value);
+                     var elenp = parseFloat(document.getElementById('id_elenp').value);
+                     var elebf = parseFloat(document.getElementById('id_elebf').value);
+                     var elecd = (wtnp)*(elenp) + (wtbf)*(elebf);
+                     document.getElementById('resultelecd').textContent = "Electrical Conductivity (σ) = " + elecd;
+                      });
+
+                      <!-- Function to transfer Diff Lambda to Calculate diff lambda value -->
+                     document.getElementById('cte-lb2').addEventListener('click', function(e) {
+                         e.preventDefault();
+                         var G_custom = document.getElementById('resultG').textContent.split(" = ")[1];
+                         document.getElementById('id_k').value = G_custom;
+                     });
+
+                      <!-- Thermal Conductivity Calculation of a different Lambda Value -->
+                     document.getElementById('formTh2').addEventListener('submit', function(e) {
+                     e.preventDefault()
+                     var Ttp = parseFloat(document.getElementById('id_f').value);
+                     var Ptp = parseFloat(document.getElementById('id_j').value);
+                     var lamb = parseFloat(document.getElementById('id_k').value);
+                     var Y = (1.204)*(Ttp)**0.866 *((13.17)*(Ptp)**lamb);
+                 document.getElementById('resultY').textContent = "Thermal Conductivity (k)= " + Y;
+                     });
+
+                      <!-- Thermal Conductivity Calculation Without Pressure and Lambda Value-->
+                     document.getElementById('formnt').addEventListener('submit', function(e) {
+                     e.preventDefault()
+                     var Ttp = parseFloat(document.getElementById('id_nt').value);
+                     var Z = (1.204)*(Ttp)**0.866;
+                 document.getElementById('resultnt').textContent = "Thermal Conductivity (No pressure) (k)= " + Z;
+                     });
+         document.getElementById('calculate').addEventListener('click', function(e) {
+         e.preventDefault();
+
+         // My individual component results
+         var Sb_result = parseFloat(document.getElementById('resultSbk').textContent.split('=')[1]);
+         var Ecd_result = parseFloat(document.getElementById('resultelecd').textContent.split('=')[1]);
+
+         var K_values = {
+         'k1': parseFloat(document.getElementById('resultX').textContent.split('=')[1]),
+         'k2': parseFloat(document.getElementById('resultY').textContent.split('=')[1]),
+         'k3': parseFloat(document.getElementById('resultnt').textContent.split('=')[1]),
+         };
+
+         var T_result = parseFloat(document.getElementById('id_temp').value);
+
+         var k_value = document.getElementById('k-value').value;
+
+         // Get the selected K value
+         var K_result = K_values[k_value];
+
+         if (!Sb_result) {
+         return document.getElementById('result').textContent = 'Error: Please calculate the Seebeck Effect value';
+         }
+         if (!Ecd_result) {
+         return document.getElementById('result').textContent = 'Error: Please calculate the Electrical Conductivity value';
+         }
+         if (K_result === undefined || K_result === null) {
+         var K_errors = {
+         'k1': 'Error: Selected Lambda value is chosen, but it is not calculated. Please calculate the Thermoelectrical Conductivity with Selected Lambda value',
+         'k2': 'Error: Different Lambda value is chosen, but it is not calculated. Please calculate the Thermoelectrical Conductivity with Different Lambda value',
+         'k3': 'Error: No Pressure/Lambda value is chosen, but it is not calculated. Please calculate the Thermoelectrical Conductivity with no Pressure/Lambda value',
+         }
+         return document.getElementById('result').textContent = K_errors[k_value];
+         }
+         if (!T_result) {
+         return document.getElementById('result').textContent = 'Error: Please fill in the T value';
+         }
+
+         var ZT_result = (Sb_result * Ecd_result / K_result) * T_result;
+
+         // Update the text content of the result element with the result
+         document.getElementById('result').textContent = 'Result: ' + ZT_result;
+         });
+
+         }
+      </script>
+   </body>
+</html>

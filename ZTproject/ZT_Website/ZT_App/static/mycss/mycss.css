@@ -1,0 +1,675 @@
+/* FONT STYLE AND BACKGROUND COLOR*/
+@font-face {
+font-family: 'Bacasime_Antique';
+src: url('C:\Users\USER\PycharmProjects\ZTproject\ZT_Website\ZT_App\fontfile\Bacasime_Antique');
+}
+body {
+    /*background: linear-gradient(to bottom, #123456, #789abc, #def123, #456789); 12343b 009   c2dde6 , 000066*/
+font-family: 'Bacasime_Antique', fallback_font;
+background: linear-gradient(to bottom, #431c5d 0%, #39a0ca 50%, #431c5d 100%);
+font-size: 16px;
+color: #333;
+}
+
+
+/* ZT FIGURE OF MERIT EQUATION TITLE*/
+h1{
+text-align:center;
+color: #ffcc00;
+font-weight: bold;
+font-style: normal;
+text-shadow: 5px 7px 8px #000000;
+}
+
+hr{  /*HORIZONTAL LINE*/
+border-bottom: none;
+border-radius: 0px;
+height: 8px;
+background-color: #fff;
+width: 100%;
+margin: 20px auto;
+box-shadow: 5px 0px 40px 2px #000000;
+}
+
+
+/* ZT MERIT EQUATION SUBTITLE*/
+#sub-title {
+color: #ffd600;
+text-align:center;
+font-weight: bold;
+font-style: normal;
+text-shadow: 5px 7px 8px #000000;
+}
+
+
+/* INFORMATION BOX */
+
+.info-box {
+    align: justify;
+    color: yellow;
+    text-shadow: 3px 3px 4px #000000;
+    border: 2px dashed #ffcc00; /* Add a border to the box */
+    padding: 20px; /* Add some padding inside the box */
+    /*margin: 20px; /* Add some margin around the box */
+    text-align: left; /* Align the text to the left */
+    width: 60%; /* Adjust the width of the box as required */
+    background-color: #00000; /* Add a background color to the box */
+}
+
+#info-text
+
+
+
+
+
+/* ZT CALCULATION SECTION */
+
+#retrieve {
+    width: 50%; /* you can set this to any width */
+    margin: auto; /* centers the div */
+    background-color: #00000; /* just for demonstration */
+    border: 1px solid #00000; /* just for demonstration */
+}
+
+#ZT_Calculation{
+font-size: 1.8em;
+letter-spacing: 5px;
+text-align: center;
+font-weight:bolder;
+color: #fff;
+text-shadow: 2px 2px 5px #fce303;
+}
+
+#Th_selection{
+text-align: center;
+color: #fff;
+font-weight:bold;
+font-size: 1.05em;
+text-shadow: 10px 6px 8px #000000;
+
+}
+
+#k-value {
+text-align: center;
+display: block;
+width: 280px; /* specify a width */
+margin: auto;
+color: white;
+align: center;
+background: #000066;
+box-shadow: 0 0 6px #660066;
+border: 3px inset #ffcc00;
+font-size: 1.0em;
+
+}
+
+#calculate {
+display: block;
+width: 300px; /* specify a width */
+margin: auto;
+text-align: center;
+display: block;
+color: white;
+align: center;
+background: #000066;
+box-shadow: 0 0 6px #660066;
+border: 3px inset #ffcc00;
+font-size: 1.05em;
+}
+
+#result {
+text-align: center;
+color: #fff;
+font-weight:bold;
+font-size: 1.15em;
+margin-top: 10px;
+text-shadow: 10px 6px 8px #000000;
+
+}
+
+
+
+
+
+/* MEAN TEMPERATURE */
+#Temm{
+font-size: 2.3em;
+text-align:center;
+color: #fff;
+font-weight: bolder;
+font-style: normal;
+text-shadow: 3px 3px 4px #000000;
+letter-spacing: 3px;
+border-bottom: 10px ridge #ffcc00;
+border-radius: 25px;
+margin-top: 100px;
+margin-left: 50px;
+width: 300px;
+}
+
+
+/*EACH PART TO CALCULATE FOR THE ZT MERIT EQUATION*/
+#Seebeck_Effect {
+font-size: 2.3em;
+text-align:center;
+color: #fff;
+font-weight: bolder;
+font-style: normal;
+text-shadow: 3px 3px 4px #000000;
+letter-spacing: 3px;
+border-bottom: 10px ridge #ffcc00;
+border-radius: 25px;
+margin-top: 50px;
+margin-bottom: 30px;
+margin-left: 50px
+width: 300px;
+}
+#Thermal_Conductivity{
+font-size: 2.3em;
+text-align:center;
+color: #fff;
+font-weight: bolder;
+font-style: normal;
+text-shadow: 3px 3px 4px #000000;
+letter-spacing: 3px;
+border-bottom: 10px ridge #ffcc00;
+border-radius: 35px;
+}
+
+#Electrical_Conductivity{
+font-size: 2.2em;
+text-align:center;
+color: #fff;
+font-weight: bolder;
+font-style: normal;
+text-shadow: 3px 3px 4px #000000;
+letter-spacing: 3.5px;
+border-bottom: 10px ridge #ffcc00;
+border-radius: 60px;
+margin-top: -5px;
+}
+
+
+
+/* EACH SUB COMPONENTS OF THE ZT EQUATION TITLES*/
+h2{
+color: #fff;
+font-weight: bold;
+font-style: normal;
+text-shadow: 3px 3px 4px #000000;
+font-size: 1.8em;
+}
+
+#tcd1{
+color: #fff;
+font-weight: bold;
+font-style: normal;
+text-shadow: 3px 3px 4px #000000;
+font-size: 1.6em;
+}
+
+
+
+#tcd2{
+color: #fff;
+font-weight: bold;
+font-style: normal;
+text-shadow: 3px 3px 4px #000000;
+font-size: 1.8em;
+}
+
+#tcd_txt{
+color: #fff;
+font-weight: bold;
+font-style: normal;
+text-shadow: 3px 3px 4px #000000;
+font-size: 1.25em;
+
+}
+
+
+
+/* DIVISION LAYOUT FOR THE WEBSITE */
+.sections {
+display: flex; /* this will make its sections align horizontally */
+justify-content: center;
+align-items: center;
+min-height: 80vh;
+}
+
+.column {
+display: flex;
+flex-direction: column; /* this will make its contents align vertically */
+justify-content: center; /* Centers children vertically in the column */
+align-items: center; /* Centers children horizontally in the column */
+margin: 20px; /* this will put a 40 pixel margin around each column */
+}
+
+.contents {
+  /*margin: 20px;/* this will put a 10 pixel margin around each section */
+text-align: center;
+}
+
+
+/*INPUTS BOXES STYLE CODE*/
+input {
+
+width: 120px;
+padding: 0.35em;
+font-size: 1.3em;
+color: #fff;
+background: #3d0066;
+border: 2px inset #ffcc00;
+border-radius: 10px;
+box-shadow: 0 0 5px #660066;
+}
+
+#id_k {
+width: 120px;
+padding: 0.35em;
+font-size: 1.3em;
+color: #ffcc00;
+background:  #000000;
+border: 2px inset #ffcc00;
+border-radius: 10px;
+box-shadow: 0 0 5px #660066;
+}
+
+
+
+/*BUTTONS STYLE CODE*/
+
+#cte-sbk {  /* code for the button that says calculate Seebek Effect*/
+color: white;
+align: center;
+background: #000066;
+border: 3px inset #ffcc00;
+border-radius: 10px;
+padding: 0.3em;
+margin-top: 20px;
+margin-left: 25px;
+box-shadow: 0 0 6px #660066;
+width:150px;
+font-size: 20px;
+}
+
+#cte-thm {  /* code for the button that says calculate (Thermovoltage)*/
+color: white;
+align: center;
+background: #000066;
+border: 3px inset #ffcc00;
+border-radius: 10px;
+padding: 0.3em;
+margin-top: 20px;
+margin-left: 0px;
+box-shadow: 0 0 6px #660066;
+width:230px;
+font-size: 20px;
+}
+
+#transferVth{    /* code for the button that says transfer Vth to Seebek*/
+color: white;
+align: center;
+background: #000066;
+border: 3px inset #ffcc00;
+border-radius: 10px;
+padding: 0.3em;
+margin-top: 20px;
+margin-left: 0px;
+box-shadow: 0 0 6px #660066;
+width:230px;
+font-size: 20px;
+}
+
+/* <select> DROP DOWN MENU STYLE CODE (For Lambda Options)*/
+#id_g {
+color: white;
+align: center;
+background: #000066;
+box-shadow: 0 0 6px #660066;
+border: 3px inset #ffcc00;
+margin-left: 15px;
+margin-top: 10px;
+font-size: 1.3em;
+}
+
+#cte-k {   /* code for the button that says calculate (thermal conductivity)*/
+color: white;
+align: center;
+background: #000066;
+border: 3px inset #ffcc00;
+border-radius: 10px;
+padding: 0.3em;
+margin-top: 15px;
+margin-left: 20px;
+box-shadow: 0 0 6px #660066;
+width:190px;
+font-size: 20px;
+}
+
+#cte-k2 {   /* code for the button that says calculate Ktp (Different lambda value)*/
+color: #ffcc00;
+align: center;
+background: #000000;
+border: 3px inset #ffcc00;
+border-radius: 10px;
+padding: 0.3em;
+margin-top: 15px;
+margin-left: 20px;
+box-shadow: 0 0 6px #660066;
+width:200px;
+font-size: 20px;
+}
+
+
+
+
+#cte-lb {   /* code for the button that says select a predetermined (lambda)*/
+color: #ffcc00;
+align: center;
+background: #000000;
+border: 3px inset #ffcc00;
+border-radius: 10px;
+padding: 0.3em;
+margin-top: 20px;
+margin-left: 10px;
+box-shadow: 0 0 6px #660066;
+width:120px;
+font-size: 20px;
+}
+
+#cte-lb2  {   /* code for the button that says transfer to (Different lambda value)*/
+color: #ffcc00;
+align: center;
+background: #000000;
+border: 3px inset #ffcc00;
+border-radius: 10px;
+padding: 0.3em;
+margin-top: 20px;
+margin-left: 10px;
+box-shadow: 0 0 6px #660066;
+width:180px;
+font-size: 20px;
+}
+
+#cte-nt {  /* CODE FOR THE BUTTON THAT SAYS CALCULATE K (No Pressure) */
+color: white;
+align: center;
+background: #000066;
+border: 3px inset #ffcc00;
+border-radius: 10px;
+padding: 0.3em;
+margin-top: 20px;
+margin-left: 0px;
+box-shadow: 0 0 6px #660066;
+width:230px;
+font-size: 20px;
+}
+
+
+#cte-ec {   /* code for the button that says calculate (Electrical Conductivity)*/
+color: white;
+align: center;
+background: #000066;
+border: 3px inset #ffcc00;
+border-radius: 10px;
+padding: 0.3em;
+margin-top: 20px;
+margin-left: 5px;
+box-shadow: 0 0 6px #660066;
+width:190px;
+font-size: 20px;
+}
+
+/*CODE FOR THE LABELS THAT ARE NEXT TO THE INPUT BOXES*/
+
+label {
+color: #fff;
+font-weight: normal;
+font-style: normal;
+font-size: 1.2em;
+text-shadow: 5px 2px 4px #000000;
+}
+
+#dlv {
+color: #ffcc00;
+font-weight: bolder;
+font-style: normal;
+font-size: 1.3em;
+text-shadow: 4px 2px 4px #000000;
+}
+
+#temps{
+color: #fff;
+font-weight: bolder;
+font-style: normal;
+font-size: 1.3em;
+text-shadow: 4px 2px 4px #000000;
+margin-left: 30px;
+
+}
+
+/* CODE FOR THE LABELS THAT ARE AT THE END OF THE INPUT BOXES (SPAN)*/
+
+span{
+color: #fff;
+font-weight: normal;
+font-style: italic;
+font-size: 1.5em;
+text-shadow: 1px 15px 10px #000000;
+
+}
+/*RESULTS DISPLAYED IN THE CALCULATE INPUT BOXES*/
+
+#resultSbk{
+font-weight: bold;
+font-style: normal;
+font-size: 1.5em;
+color: #ffec00;
+text-shadow: 2px 2px 4px #000000;
+}
+
+#resultVth {
+font-weight: bold;
+font-style: normal;
+font-size: 1.5em;
+color: #ffec00;
+text-shadow: 6px 6px 4px #000000;
+}
+#resultX {
+font-weight: bold;
+font-style: normal;
+font-size: 1.5em;
+color: #ffec00;
+text-shadow: 2px 2px 4px #000000;
+}
+
+#resultG {
+font-weight: bold;
+font-style: normal;
+font-size: 1.5em;
+color: #ffec00;
+text-shadow: 6px 6px 4px #000000;
+}
+
+#resultY {
+font-weight: bold;
+font-style: normal;
+font-size: 1.5em;
+color: #ffec00;
+text-shadow: 6px 6px 4px #000000;
+}
+
+#resultnt {
+font-weight: bold;
+font-style: normal;
+font-size: 1.5em;
+color: #ffec00;
+text-shadow: 2px 2px 4px #000000;
+}
+
+
+#resultelecd {   /* RESULT DISPLAYED TEXT FOR ELECTRICAL CONDUCTIVITY*/
+font-weight: bold;
+font-style: normal;
+font-size: 1.5em;
+color: #ffec00;
+text-shadow: 6px 6px 4px #000000;
+}
+
+
+  /*IMAGESSSSSSSSSS NO IMAGES YET BUT KEEP IN CASE*/
+
+#image1 {
+width: 150px;
+height: auto;
+margin-left: 50px;
+margin-bottom: 30px;
+margin-top: -20px;
+border: none;
+}
+
+#logo_text1{
+color: #fff;
+text-shadow: 3px 3px 4px #000000;
+font-size: 1.1em
+}
+
+#logo_text2{
+color: #fff;
+text-shadow: 3px 3px 4px #000000;
+}
+
+#logo_text3{
+color: #fff;
+text-shadow: 3px 3px 4px #000000;
+}
+
+/* ZT EQUATION TYPED. (THIS IS FOR THE DISPLAY OF THE ZT MERIT EQUATION AND THE OTHERS COMPONENTS)*/
+.equation {
+font-size: 20px;
+font-style: bolder;
+color: white;
+margin-bottom: 20px;
+}
+
+
+#main_display_eq {  /*SETTINGS FOR THE MAIN EQUATION DISPLAY*/
+display: flex;
+justify-content: center; /* Centers the content horizontally */
+align-items: center; /* Centers the content vertically */
+font-weight: bold;
+font-size: 60px;
+}
+
+/* TEXT BELOW MAIN EQUATION DISPLAY */
+
+#go_to_calculate_eq{
+margin-left: 80px;
+border: 4px dashed #ffcc00;
+width: 120px;
+}
+
+/* LINK TO SCROLL DOWN TO EACH SECTION FOR THE ZT MERIT EQUATION */
+
+/* Unvisited link */
+a:link {
+color: white;
+text-decoration: underline;
+}
+
+/* Visited link */
+a:visited {
+color: white;
+}
+
+/* Mouse over link */
+a:hover {
+color: #e6b800;
+}
+
+/* Selected link */
+a:active {
+color: white;
+}
+
+.components:link {
+color: #fff; /* unvisited link */
+text-decoration-line: none;
+}
+
+.components:visited {
+color: #fff; /* visited link */
+}
+
+.components:hover {
+color: #e6b800; /* mouse over link */
+}
+
+.components:active {
+color: #fff; /* selected link */
+}
+
+
+
+#link5:link {
+color: #fff; /* unvisited link */
+text-decoration-line: none;
+}
+#link5:visited {
+color: #fff; /* visited link */
+}
+
+#link5:hover {
+color: #3d0066; /* mouse over link */
+}
+
+#link5:active {
+color: #fff; /* selected link */
+}
+
+
+
+/* SCROLL BUTTONS TO MAIN ZT EQUATION DISPLAY */
+
+#scroll1 {
+color: #fff;
+align: center;
+background: #000000;
+border: 3px inset #ffcc00;
+border-radius: 10px;
+padding: 0.3em;
+margin-top: 70px;
+margin-left: -10px;
+box-shadow: 0 0 6px #660066;
+width:190px;
+font-size: 20px;
+}
+
+#scroll2 {
+color: #fff;
+align: center;
+background: #000000;
+border: 3px inset #ffcc00;
+border-radius: 10px;
+padding: 0.3em;
+margin-top: 30px;
+margin-left: 0px;
+box-shadow: 0 0 6px #660066;
+width:190px;
+font-size: 20px;
+}
+
+#scroll3 {
+color: #fff;
+align: center;
+background: #000000;
+border: 3px inset #ffcc00;
+border-radius: 10px;
+padding: 0.3em;
+margin-top: 30px;
+margin-left: 0px;
+box-shadow: 0 0 6px #660066;
+width:190px;
+font-size: 20px;
+}
